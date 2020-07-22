@@ -1,0 +1,19 @@
+*.class
+
+# Mobile Tools for Java (J2ME)
+.mtj.tmp/
+
+# Package Files #
+*.war
+*.ear
+
+# IDE
+.classpath
+.idea/
+.project
+.settings/
+bin/
+AlgorithmsBookExercises.iml
+
+# misc
+.DS_Store
