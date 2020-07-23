@@ -9,7 +9,6 @@ public class Exercise9 {
         while (n > 0) {
             result = n % 2 + result;
             n = n / 2;
-            System.out.println(n);
         }
         return result;
     }

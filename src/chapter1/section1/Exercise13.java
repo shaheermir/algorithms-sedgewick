@@ -26,7 +26,6 @@ public class Exercise13 {
             }
             StdOut.println();
         }
-
     }
 
     public static void main(String[] args) {
