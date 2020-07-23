@@ -8,6 +8,7 @@
 *.ear
 
 # IDE
+out/
 .classpath
 .idea/
 .project
