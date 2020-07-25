@@ -27,7 +27,6 @@ public class Exercise2 {
             }
 
             intervals[i] = new Interval1D(firstValue, secondValue);
-            ;
         }
     }
 
