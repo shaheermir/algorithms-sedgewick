@@ -3,6 +3,7 @@ package chapter1.section3;
 import edu.princeton.cs.algs4.StdOut;
 
 import java.util.Iterator;
+import java.util.NoSuchElementException;
 
 public class Stack<T> implements Iterable<T> {
 
@@ -36,14 +37,17 @@ public class Stack<T> implements Iterable<T> {
     }
 
     public T pop() {
-        if (isEmpty()) {
-            throw new RuntimeException("Stack underflow");
-        }
-
+        if (isEmpty()) throw new NoSuchElementException("Stack underflow");
+        
         T data = head.data;
         head = head.next;
         size--;
         return data;
+    }
+
+    public T peek() {
+        if (isEmpty()) throw new NoSuchElementException("Stack underflow");
+        return head.data;
     }
 
     @Override
@@ -96,6 +100,6 @@ public class Stack<T> implements Iterable<T> {
             StdOut.println(n);
         }
         StdOut.println("Size is " + numbers.size());
-
+        StdOut.println("\nPeeking " + numbers.peek());
     }
 }
