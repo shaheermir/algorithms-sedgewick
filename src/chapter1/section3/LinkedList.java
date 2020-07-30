@@ -55,6 +55,10 @@ public class LinkedList<T> implements Iterable<T> {
     return -1;
   }
 
+  public boolean contains(T item) {
+    return indexOf(item) != -1;
+  }
+
   public T getFirst() {
     return get(0);
   }
@@ -103,6 +107,14 @@ public class LinkedList<T> implements Iterable<T> {
     return item;
   }
 
+  public T removeFirst() {
+    return remove(0);
+  }
+
+  public T removeLast() {
+    return remove(size - 1);
+  }
+
   @Override
   public Iterator<T> iterator() {
     return new Iterator<T>() {
@@ -120,5 +132,17 @@ public class LinkedList<T> implements Iterable<T> {
         return item;
       }
     };
+  }
+
+  @Override
+  public String toString() {
+    String list = "";
+    int i = 0;
+    for (T item : this) {
+      if (i == 0) list = list + item;
+      else list = list + "," + item;
+      i++;
+    }
+    return "LinkedList{" + "size=" + size + ", list=" + list + '}';
   }
 }
