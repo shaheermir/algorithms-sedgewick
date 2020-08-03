@@ -115,6 +115,20 @@ public class LinkedList<T> implements Iterable<T> {
     return remove(size - 1);
   }
 
+  public void removeAfter(Node node) {
+    if (isEmpty() || node == null) return;
+
+    Node current = head;
+    while (current != null) {
+      if (current.item.equals(node.item) && current.next != null) {
+        current.next = current.next.next;
+        size--;
+        return;
+      }
+      current = current.next;
+    }
+  }
+
   @Override
   public Iterator<T> iterator() {
     return new Iterator<T>() {
