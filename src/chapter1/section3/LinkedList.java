@@ -129,6 +129,21 @@ public class LinkedList<T> implements Iterable<T> {
     }
   }
 
+  public void insertAfter(Node first, Node second) {
+    if (isEmpty() || first == null || second == null) return;
+
+    Node current = head;
+    while (current != null) {
+      if (current.item.equals(first.item)) {
+        second.next = current.next;
+        current.next = second;
+        size++;
+        return;
+      }
+      current = current.next;
+    }
+  }
+
   @Override
   public Iterator<T> iterator() {
     return new Iterator<T>() {
