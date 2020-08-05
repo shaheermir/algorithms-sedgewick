@@ -166,6 +166,11 @@ public class LinkedList<T> implements Iterable<T> {
     }
   }
 
+  public Node getHeadNode() {
+    if (isEmpty()) throw new NoSuchElementException("List is empty");
+    return head;
+  }
+
   @Override
   public Iterator<T> iterator() {
     return new Iterator<T>() {
