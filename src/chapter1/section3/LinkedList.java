@@ -144,6 +144,28 @@ public class LinkedList<T> implements Iterable<T> {
     }
   }
 
+  public void removeByKey(T key) {
+    if (isEmpty() || key == null) return;
+
+    Node current = head;
+    while (current != null) {
+      Node next = current.next;
+      while (next != null && next.item.equals(key)) {
+        next = next.next;
+        size--;
+      }
+      current.next = next;
+
+      current = current.next;
+    }
+
+    // special casing head
+    if (head.item.equals(key)) {
+      head = head.next;
+      size--;
+    }
+  }
+
   @Override
   public Iterator<T> iterator() {
     return new Iterator<T>() {
