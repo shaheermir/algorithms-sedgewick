@@ -5,6 +5,7 @@ import edu.princeton.cs.algs4.StdOut;
 import java.util.Arrays;
 import java.util.NoSuchElementException;
 
+// See CircularQueue for a slightly cleaner sol'n.
 public class RingBuffer<T> {
   private T[] buffer;
   private int size;
