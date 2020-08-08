@@ -1,0 +1,18 @@
+Think of the handshake problem.
+N people in a room.
+How many handshakes in total if each person shakes hand with every other person ?
+
+We have N people, and each person shakes hand with every other person, so that
+would be (N - 1).
+
+= N * (N - 1)
+
+But a shake b is same as b shake a, so to avoid double counting we divide by 2!.
+There are 2! ways to arrange 2 items.
+
+= [ N * (N - 1) ] / 2
+
+-----
+
+Our triple problem is no different.
+[N * (N - 1) * (N * 2)] / 3!
