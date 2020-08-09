@@ -17,6 +17,12 @@ public class UF_A {
     return count;
   }
 
+  /**
+   * O(1)
+   *
+   * @param p - the node / site being searched for.
+   * @return the component / group ID.
+   */
   public int find(int p) {
     return id[p];
   }
@@ -25,6 +31,12 @@ public class UF_A {
     return find(p) == find(q);
   }
 
+  /**
+   * "Unites" nodes / sites into a single group to represent connections. O(N^2) for array accesses.
+   *
+   * @param p - site / node to connect.
+   * @param q - site / node to connect.
+   */
   public void union(int p, int q) {
     int pID = find(p);
     int qID = find(q);
