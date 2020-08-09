@@ -3,8 +3,6 @@ package chapter1.section5;
 import edu.princeton.cs.algs4.StdIn;
 import edu.princeton.cs.algs4.StdOut;
 
-import java.util.Arrays;
-
 public class UF_A {
   private int[] id; // access to component id (site indexed)
   private int count; // number of components
@@ -37,7 +35,6 @@ public class UF_A {
       if (id[i] == pID) id[i] = qID;
     }
     count--;
-    StdOut.println(Arrays.toString(id));
   }
 
   public static void main(String[] args) {
