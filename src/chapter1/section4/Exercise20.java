@@ -16,26 +16,32 @@ public class Exercise20 {
 
     StdOut.println(Arrays.toString(a1));
     StdOut.println("Finding Peak: " + findPeak(a1));
+    StdOut.println("Finding Peak Index: " + findPeakIndex(a1));
 
     StdOut.println();
     StdOut.println(Arrays.toString(a2));
     StdOut.println("Finding Peak: " + findPeak(a2));
+    StdOut.println("Finding Peak Index: " + findPeakIndex(a2));
 
     StdOut.println();
     StdOut.println(Arrays.toString(a3));
     StdOut.println("Finding Peak: " + findPeak(a3));
+    StdOut.println("Finding Peak Index: " + findPeakIndex(a3));
 
     StdOut.println();
     StdOut.println(Arrays.toString(a4));
     StdOut.println("Finding Peak: " + findPeak(a4));
+    StdOut.println("Finding Peak Index: " + findPeakIndex(a4));
 
     StdOut.println();
     StdOut.println(Arrays.toString(a5));
     StdOut.println("Finding Peak: " + findPeak(a5));
+    StdOut.println("Finding Peak Index: " + findPeakIndex(a5));
 
     StdOut.println();
     StdOut.println(Arrays.toString(bitonicArray));
     StdOut.println("Finding Peak: " + findPeak(bitonicArray));
+    StdOut.println("Finding Peak Index: " + findPeakIndex(bitonicArray));
   }
 
   public static int findPeak(int[] a) {
@@ -84,5 +90,32 @@ public class Exercise20 {
     }
 
     return -9999;
+  }
+
+  public static int findPeakIndex(int[] a) {
+    int left = 0;
+    int right = a.length - 1;
+
+    while (left <= right) {
+      int mid = left + (right - left) / 2;
+
+      if (mid > 0 && mid < a.length - 1) {
+        if (a[mid - 1] < a[mid] && a[mid] > a[mid + 1]) {
+          return mid;
+        } else if (a[mid] < a[mid - 1]) {
+          right = mid - 1;
+        } else if (a[mid] < a[mid + 1]) {
+          left = mid + 1;
+        }
+      } else if (mid == 0) {
+        if (a[mid] > a[mid + 1]) return mid;
+        else break;
+      } else if (mid == a.length - 1) {
+        if (a[mid] > a[mid - 1]) return mid;
+        else break;
+      }
+    }
+
+    return -1;
   }
 }
