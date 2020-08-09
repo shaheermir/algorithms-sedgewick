@@ -19,3 +19,6 @@ AlgorithmsBookExercises.iml
 # misc
 .DS_Store
 .gitconfig
+
+# data set
+algs4-data/
