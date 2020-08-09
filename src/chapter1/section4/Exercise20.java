@@ -7,15 +7,24 @@ import java.util.Arrays;
 public class Exercise20 {
   public static void main(String[] args) {
     int[] bitonicArray = {200, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, -3, -2};
+    int[] bitonicArray2 = {200, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1};
+    int[] bitonicArray3 = {1, 2, 3, 4, 5, 6, 7, 8, 9};
+    int[] bitonicArray4 = {-9, -20, -2, -3, -4};
+
     StdOut.println(Arrays.toString(bitonicArray));
-    StdOut.println();
-
-    //    StdOut.println("Searching for 2: " + bitonicSearch(bitonicArray, 2));
     StdOut.println("Finding Peak: " + findPeak(bitonicArray));
-  }
 
-  public static int bitonicSearch(int[] a) {
-    return -1;
+    StdOut.println();
+    StdOut.println(Arrays.toString(bitonicArray2));
+    StdOut.println("Finding Peak: " + findPeak(bitonicArray2));
+
+    StdOut.println();
+    StdOut.println(Arrays.toString(bitonicArray3));
+    StdOut.println("Finding Peak: " + findPeak(bitonicArray3));
+
+    StdOut.println();
+    StdOut.println(Arrays.toString(bitonicArray4));
+    StdOut.println("Finding Peak: " + findPeak(bitonicArray4));
   }
 
   public static int findPeak(int[] a) {
@@ -36,6 +45,6 @@ public class Exercise20 {
       }
     }
 
-    return -1;
+    return -9999;
   }
 }
