@@ -58,4 +58,25 @@ public class Exercise20 {
 
     return -9999;
   }
+
+  public static int findPeak2(int[] a) {
+    int left = 0;
+    int right = a.length - 1;
+
+    while (left <= right) {
+      int mid = left + (right - left) / 2;
+
+      if ((mid == 0 && a[mid] > a[mid + 1]) || (mid == a.length - 1 && a[mid] > a[mid - 1])) {
+        return a[mid];
+      } else if (mid > 0 && a[mid - 1] < a[mid] && mid < a.length - 1 && a[mid] > a[mid + 1]) {
+        return a[mid];
+      } else if (mid > 0 && a[mid] < a[mid - 1]) {
+        right = mid - 1;
+      } else if (mid < a.length - 1 && a[mid] < a[mid + 1]) {
+        left = mid + 1;
+      }
+    }
+
+    return -9999;
+  }
 }
