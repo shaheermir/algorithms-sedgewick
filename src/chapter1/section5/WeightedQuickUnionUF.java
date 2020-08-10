@@ -23,7 +23,7 @@ public class WeightedQuickUnionUF {
   }
 
   /**
-   * O(N)
+   * Tree Height: O(log N)
    *
    * @param p - the node / site being searched for.
    * @return the component / group ID.
@@ -39,8 +39,7 @@ public class WeightedQuickUnionUF {
   }
 
   /**
-   * Constructs a tree to represent connections amongst nodes. O(N) For certain inputs, this can
-   * change to O(N^2) due to the way find is setup.
+   * Constructs a tree to represent connections amongst nodes. Tree Height: O(log N)
    *
    * @param p - site / node to connect.
    * @param q - site / node to connect.

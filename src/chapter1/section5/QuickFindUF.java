@@ -3,11 +3,11 @@ package chapter1.section5;
 import edu.princeton.cs.algs4.StdIn;
 import edu.princeton.cs.algs4.StdOut;
 
-public class UF_B {
+public class QuickFindUF {
   private int[] id; // access to component id (site indexed)
   private int count; // number of components
 
-  public UF_B(int N) {
+  public QuickFindUF(int N) {
     this.count = N;
     this.id = new int[N];
     for (int i = 0; i < N; i++) id[i] = i;
@@ -18,15 +18,13 @@ public class UF_B {
   }
 
   /**
-   * O(N)
+   * O(1)
    *
    * @param p - the node / site being searched for.
    * @return the component / group ID.
    */
   public int find(int p) {
-    // follow links to find root node
-    while (p != id[p]) p = id[p];
-    return p;
+    return id[p];
   }
 
   public boolean connected(int p, int q) {
@@ -34,26 +32,27 @@ public class UF_B {
   }
 
   /**
-   * Constructs a tree to represent connections amongst nodes. O(N) For certain inputs, this can
-   * change to O(N^2) due to the way find is setup.
+   * "Unites" nodes / sites into a single group to represent connections. N^2 array accesses. O(N)
    *
    * @param p - site / node to connect.
    * @param q - site / node to connect.
    */
   public void union(int p, int q) {
-    int pParentID = find(p);
-    int qParentID = find(q);
+    int pID = find(p);
+    int qID = find(q);
 
-    if (pParentID == qParentID) return;
+    if (pID == qID) return;
 
-    id[pParentID] = qParentID;
+    for (int i = 0; i < id.length; i++) {
+      if (id[i] == pID) id[i] = qID;
+    }
     count--;
   }
 
   public static void main(String[] args) {
     int N = StdIn.readInt();
     StdOut.println(N);
-    UF_B uf = new UF_B(N);
+    QuickFindUF uf = new QuickFindUF(N);
     while (!StdIn.isEmpty()) {
       int p = StdIn.readInt();
       int q = StdIn.readInt();
