@@ -3,6 +3,14 @@ package chapter1.section5;
 import edu.princeton.cs.algs4.StdIn;
 import edu.princeton.cs.algs4.StdOut;
 
+/**
+ * Find is still O(N) compared to QuickFind, but the number of parent updates have been reduced. For
+ * example, with quick find, we were arbitrarily merging 2 groups regardless of size. Imagine
+ * merging groupA of size 10 with groupB of size 2.
+ *
+ * <p>It is obviously more performant to update the two nodes in groupB to match the nodes in
+ * groupA, then it is to update the 10 nodes in groupA to match the 2 nodes in groupB.
+ */
 public class WeightedQuickFindUF {
   private int[] id;
   private int count;
