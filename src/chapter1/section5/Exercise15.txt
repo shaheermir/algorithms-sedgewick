@@ -1,0 +1,30 @@
+Lets say these are the two trees :-
+
+                            1                    6
+                           / \          and     / \
+                          4   3                 5  2
+                                                    \
+                                                     7
+Now lets say we need to perform union ( 3, 5) the resulting tree will look like this
+
+                           6
+                          /| \
+                         1 5  2
+                        / \    \
+                       4   3    7
+Depth of node 3 increased by 1 during this operation but the depth of node 5 remained the same.
+
+This means the depth of a node will only increase if the tree in which it is present joins a bigger tree.
+
+Now whenever a small tree of size x ( no. of nodes in the tree) joins a bigger ( or equal sized ) tree, the size of result tree is at least 2 times x.
+
+Now lets say this doubling of size happens i times, the size of resulting tree will be 2^i. Remember that whenever the size doubled the depth of some of the nodes increased by 1.
+
+What is the maximum size the tree can obtain ?
+
+   2^i   <=  n ( no. of nodes in the tree )
+   i <= log n ( base 2 log operation )
+
+Thus the depth of any node can be increased upto log n, not anymore than that.
+
+Remember all the above logic only applies when a smaller tree joins a larger tree as its branch. Otherwise the doubling logic will not apply.
