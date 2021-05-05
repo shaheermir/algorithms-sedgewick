@@ -1,0 +1,24 @@
+*.class
+
+# Mobile Tools for Java (J2ME)
+.mtj.tmp/
+
+# Package Files #
+*.war
+*.ear
+
+# IDE
+out/
+.classpath
+.idea/
+.project
+.settings/
+bin/
+AlgorithmsBookExercises.iml
+
+# misc
+.DS_Store
+.gitconfig
+
+# data set
+algs4-data/
