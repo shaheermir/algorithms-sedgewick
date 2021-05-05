@@ -25,10 +25,10 @@ public class SmallestDifference {
 
       if (firstNum < secondNum) {
         i++;
-      } else if (secondNum < firstNum) {
+      } else if (firstNum > secondNum) {
         j++;
       } else {
-        return new int[] {a[i], b[j]};
+        return new int[] {firstNum, secondNum};
       }
 
       if (difference < currentSmallestDiff) {
