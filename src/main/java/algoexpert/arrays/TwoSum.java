@@ -1,5 +1,6 @@
 package algoexpert.arrays;
 
+import chapter1.section4.BinarySearch;
 import edu.princeton.cs.algs4.StdOut;
 
 import java.util.Arrays;
@@ -34,11 +35,30 @@ public class TwoSum {
       int complement = target - a[i];
       set.add(complement);
     }
+
+    return new int[] {};
+  }
+
+  public static int[] twoSumFaster(int[] a, int target) {
+    Arrays.sort(a);
+
+    for (int i = 0; i < a.length; i++) {
+      int complement = target - a[i];
+      int indexOfComplement = BinarySearch.ascendingBinarySearch(a, complement);
+
+      if (indexOfComplement != -1 && indexOfComplement > i) {
+        int[] result = new int[2];
+        result[0] = a[i];
+        result[1] = complement;
+        return result;
+      }
+    }
+
     return new int[] {};
   }
 
   // O(nlog(n)) | O(1) space
-  public static int[] twoSumFaster(int[] a, int target) {
+  public static int[] twoSumEvenFaster(int[] a, int target) {
     Arrays.sort(a);
     int left = 0, right = a.length - 1;
 
@@ -53,12 +73,18 @@ public class TwoSum {
   }
 
   public static void main(String[] args) {
-    int[] a = twoSum(new int[] {3, 5, -4, 8, 11, 1, -1, 6}, 10);
-    int[] b = twoSum(new int[] {4, 6}, 10);
-    int[] c = twoSum(new int[] {1, 2, 3, 4, 5, 6, 7, 8, 9}, 17);
-    int[] cFaster = twoSumFaster(new int[] {1, 2, 3, 4, 5, 6, 7, 8, 9}, 17);
+    int[] a = twoSumFaster(new int[] {3, 5, -4, 8, 11, 1, -1, 6}, 10);
+    int[] b = twoSumFaster(new int[] {4, 6}, 10);
+    int[] c = twoSumFaster(new int[] {1, 2, 3, 4, 5, 6, 7, 8, 9}, 17);
 
+    StdOut.println(Arrays.toString(a));
+    StdOut.println(Arrays.toString(b));
     StdOut.println(Arrays.toString(c));
+
+    int[] cFaster = twoSumFaster(new int[] {1, 2, 3, 4, 5, 6, 7, 8, 9}, 17);
     StdOut.println(Arrays.toString(cFaster));
+
+    int[] d = twoSumEvenFaster(new int[] {1, 2, 3, 4, 5, 6, 7, 8, 9}, 17);
+    StdOut.println(Arrays.toString(d));
   }
 }
