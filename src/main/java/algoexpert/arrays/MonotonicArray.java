@@ -43,6 +43,23 @@ public class MonotonicArray {
     return true;
   }
 
+  public static boolean isMonotonic3(int[] a) {
+    int k = a.length - 1;
+    int direction = a[k] - a[0];
+
+    while (direction == 0) {
+      k--;
+      direction = a[k] - a[0];
+    }
+
+    for (int i = 0; i < a.length - 1; i++) {
+      if (a[i] < a[i + 1] && direction < 0) return false;
+      if (a[i] > a[i + 1] && direction > 0) return false;
+    }
+
+    return true;
+  }
+
   public static void main(String[] args) {
     StdOut.println(isMonotonic(new int[] {1, 2, 3, 4, 5, 5, 5, 6, 7}));
     StdOut.println(isMonotonic(new int[] {1, 2, 3, 4, 5, 5, 5, 6, 1}));

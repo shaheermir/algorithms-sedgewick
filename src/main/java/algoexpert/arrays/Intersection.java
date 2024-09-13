@@ -17,7 +17,9 @@ public class Intersection {
   public static int[] intersection(int[] a, int[] b) {
     Map<Integer, Integer> aCount = new HashMap<>();
 
-    for (int i : a) aCount.put(i, aCount.getOrDefault(i, 0) + 1);
+    for (int i : a) {
+      aCount.put(i, aCount.getOrDefault(i, 0) + 1);
+    }
 
     ArrayList<Integer> intersection = new ArrayList<>();
 

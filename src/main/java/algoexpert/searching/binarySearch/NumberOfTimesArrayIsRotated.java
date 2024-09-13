@@ -14,18 +14,23 @@ public class NumberOfTimesArrayIsRotated {
   }
 
   private static int findIndexOfMinElement(int[] a) {
-    int ans = -1;
     int left = 0;
     int right = a.length - 1;
     int last = a.length - 1;
 
+    int ans = -1;
+
     while (left <= right) {
-      int mid = (left + right) / 2;
+      int mid = left + (right - left) / 2;
+
       if (a[mid] <= a[last]) {
         ans = mid;
         right = mid - 1;
-      } else left = mid + 1;
+      } else {
+        left = mid + 1;
+      }
     }
+
     return ans;
   }
 
@@ -38,3 +43,18 @@ public class NumberOfTimesArrayIsRotated {
     StdOut.println(countRotations(c) + " Expected 6");
   }
 }
+
+//
+//  int ans = -1;
+//  int left = 0;
+//  int right = a.length - 1;
+//  int last = a.length - 1;
+//
+//    while (left <= right) {
+//            int mid = (left + right) / 2;
+//            if (a[mid] <= a[last]) {
+//            ans = mid;
+//            right = mid - 1;
+//            } else left = mid + 1;
+//            }
+//            return ans;
